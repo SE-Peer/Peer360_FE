@@ -2,7 +2,6 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useEffect, Suspense } from 'react';
 import { Link } from 'react-router-dom';
 
-import { ReactComponent as Modo } from '@/assets/modo.svg';
 import { ReactComponent as Banner } from '@/assets/login-banner.svg';
 import Input from '@/Components/Input';
 import Button from '@/Components/Button';
@@ -31,9 +30,10 @@ export const LoginPage = () => {
 
   return (
     <main className="flex w-full min-w-[1270px]">
-      <section className="w-1/2 h-screen gap-10 bg-[#FDEEDF] flex items-center flex-col justify-center">
+      <section className="w-1/2 h-screen gap-10 bg-[#50B36B] flex items-center flex-col justify-center">
         <Suspense fallback={<>로딩</>}>
-          <Modo />
+          {/* <Modo /> */}
+          <div className="font-bold text-[60px] text-white">PEER 360</div>
           <Banner />
         </Suspense>
       </section>
@@ -63,13 +63,13 @@ export const LoginPage = () => {
               })}
             />
             <div className="py-3" />
-            <Button isSubmit color="gray" content="로그인" disabled={isSubmitting} />
+            <Button isSubmit color="mainColor" content="로그인" disabled={isSubmitting} />
           </form>
           <p className="text-gray mt-5">아이디/비밀번호를 잊으셨나요?</p>
         </div>
         <span className="absolute text-gray flex gap-3 bottom-10 whitespace-nowrap">
           아직 회원이 아니신가요?{' '}
-          <Link to="/signup" className="text-yellow-600">
+          <Link to="/signup" className="text-green">
             회원가입 하러 가기
           </Link>
         </span>

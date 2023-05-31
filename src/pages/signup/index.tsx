@@ -3,7 +3,6 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import Button from '@/Components/Button';
-import { ReactComponent as Modo } from '@/assets/modo.svg';
 import { ReactComponent as Banner } from '@/assets/login-banner.svg';
 import Input from '@/Components/Input';
 
@@ -30,8 +29,9 @@ export const SignupPage = () => {
   }, []);
   return (
     <main className="flex w-full min-w-[1270px]">
-      <section className="w-1/2 h-screen gap-12 bg-[#FDEEDF] flex items-center flex-col justify-center">
-        <Modo />
+      <section className="w-1/2 h-screen gap-10 bg-[#50B36B] flex items-center flex-col justify-center">
+        {/* <Modo /> */}
+        <div className="font-bold text-[60px] text-white">PEER 360</div>
         <Banner />
       </section>
       <section className="h-screen flex flex-col items-center justify-center w-1/2">
@@ -112,12 +112,12 @@ export const SignupPage = () => {
               })}
             />
             <div className="py-3" />
-            <Button isSubmit content="다음" disabled={isSubmitting} color="gray" />
+            <Button isSubmit content="다음" disabled={isSubmitting} color="mainColor" />
           </form>
         </div>
         <span className=" text-gray flex gap-3 bottom-10 whitespace-nowrap">
           이미 계정이 있으신가요?{' '}
-          <Link to="/login" className="text-yellow-600">
+          <Link to="/login" className="text-green">
             로그인 하러 가기
           </Link>
         </span>

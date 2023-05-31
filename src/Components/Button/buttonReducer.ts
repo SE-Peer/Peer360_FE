@@ -5,9 +5,9 @@ export default function ButtonReducer(
   action: { type: colorKindsOf; isSecondary: boolean },
 ) {
   switch (action.type) {
-    case 'brown1':
+    case 'mainColor':
       if (action.isSecondary) return 'border-brown1 text-brown1 bg-white';
-      return 'border-brown1 text-white bg-brown1';
+      return 'border-[#50B36B] text-white bg-[#50B36B]';
     case 'brown2':
       if (action.isSecondary) return 'border-brown2 text-brown2 bg-white';
       return 'border-brown2 text-white bg-brown2';

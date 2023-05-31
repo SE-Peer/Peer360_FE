@@ -13,7 +13,7 @@ function App() {
   return (
     <>
       <Routes key={location.pathname} location={location}>
-        <Route path="/" element={<MainPage />} />
+        <Route path="/" element={<LoginPage />} />
 
         <Route path="/login" element={<LoginPage />} />
         <Route path="/addbook" element={<AddBook />} />

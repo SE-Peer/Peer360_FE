@@ -37,7 +37,7 @@ const Input = (props: InputProps) => {
           {...context}
           {...props}
         />
-        {useButton && <Button color="brown1" content={isButtonContent} />}
+        {useButton && <Button color="mainColor" content={isButtonContent} />}
       </div>
       <p className="text-red text-[0.875rem] py-1">{message}</p>
     </>
