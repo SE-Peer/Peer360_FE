@@ -41,7 +41,7 @@ export const LocationValidationPage = () => {
               <div className="py-1" />
               <SearchBar content="경기도 수원시 팔달구 중부대로 223" />
               <div className="py-3" />
-              <Button isSubmit content="다음" disabled={isSubmitting} color="brown1" />
+              <Button isSubmit content="다음" disabled={isSubmitting} color="mainColor" />
             </div>
           </form>
         </div>
