@@ -15,6 +15,7 @@ function App() {
       <Routes key={location.pathname} location={location}>
         <Route path="/" element={<LoginPage />} />
 
+        <Route path="/mainpage" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/addbook" element={<AddBook />} />
         <Route path="/signup" element={<SignupPage />} />

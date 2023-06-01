@@ -2,7 +2,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { BsPlusSquare, BsHeart, BsBook, BsChat, BsPeople } from 'react-icons/bs';
 import React from 'react';
 
-import { ReactComponent as MODO } from '@/assets/small-modo.svg';
+// import { ReactComponent as MODO } from '@/assets/small-modo.svg';
 
 interface INavBarList {
   icons: React.ReactElement;
@@ -43,12 +43,21 @@ export const Header = () => {
 
   return (
     <header className="w-full flex py-3 justify-between ">
-      <MODO
+      {/* <MODO
         className="py-3 cursor-pointer"
         onClick={() => {
           navigate('/');
         }}
-      />
+      /> */}
+
+      <div
+        className=" py-3 cursor-pointer font-bold text-[42px] text-green"
+        onClick={() => {
+          navigate('/');
+        }}
+      >
+        PEER 360
+      </div>
       <div>
         <div className="text-right text-sm cursor-pointer ">로그아웃</div>
         <div className="flex  gap-2  py-3 justify-between last:border-none remove-border-right">
