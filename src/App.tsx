@@ -4,7 +4,7 @@ import LoginPage from '@/pages/login';
 import SignupPage from '@/pages/signup';
 import LocationValidationPage from '@/pages/locationvalidation';
 import MainPage from '@/pages/mainpage';
-import { AddReview } from '@/pages/addreview';
+import AddReview from '@/pages/addreview';
 
 function App() {
   const location = useLocation();

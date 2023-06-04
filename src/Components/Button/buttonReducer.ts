@@ -7,7 +7,8 @@ export default function ButtonReducer(
   switch (action.type) {
     case 'mainColor':
       if (action.isSecondary) return 'border-brown1 text-brown1 bg-white';
-      return 'border-[#50B36B] text-white bg-[#50B36B]';
+      return ' bg-gradient-to-l from-lime-400  to-lime-800 text-white bg-[#50B36B]';
+    // border-[#50B36B]
     case 'brown2':
       if (action.isSecondary) return 'border-brown2 text-brown2 bg-white';
       return 'border-brown2 text-white bg-brown2';

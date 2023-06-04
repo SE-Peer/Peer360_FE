@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { BsPlusSquare, BsHeart, BsChat, BsPeople } from 'react-icons/bs';
+import { BsPlusSquare } from 'react-icons/bs';
 import React from 'react';
 
 // import { ReactComponent as MODO } from '@/assets/small-modo.svg';
@@ -16,31 +16,31 @@ export const Header = () => {
   const NavBarList: INavBarList[] = [
     {
       icons: <BsPlusSquare />,
-      text: '나의리뷰',
+      text: '리뷰 등록하기',
       goTo: 'addreview',
     },
 
-    {
-      icons: <BsHeart />,
-      text: '리뷰 작성하기',
-      goTo: 'wishlist',
-    },
-    {
-      icons: <BsChat />,
-      text: '채팅',
-      goTo: 'chat',
-    },
-    {
-      icons: <BsPeople />,
-      text: '마이 페이지',
-      goTo: 'mypage',
-    },
+    // {
+    //   icons: <BsHeart />,
+    //   text: '리뷰 작성하기',
+    //   goTo: 'wishlist',
+    // },
+    // {
+    //   icons: <BsChat />,
+    //   text: '채팅',
+    //   goTo: 'chat',
+    // },
+    // {
+    //   icons: <BsPeople />,
+    //   text: '마이 페이지',
+    //   goTo: 'mypage',
+    // },
   ];
 
   return (
     <header className="w-full flex py-3 justify-between ">
       <div
-        className=" py-3 cursor-pointer font-bold text-[42px] text-green"
+        className=" py-3 cursor-pointer font-bold text-[42px] text-lime-600"
         onClick={() => {
           navigate('/');
         }}

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom';
 import { ReactComponent as Banner } from '@/assets/login-banner.svg';
 import Input from '@/Components/Input';
 import Button from '@/Components/Button';
+import HiddenInput from '@/Components/HiddenInput';
 
 export const LoginPage = () => {
   const {
@@ -30,7 +31,7 @@ export const LoginPage = () => {
 
   return (
     <main className="flex w-full min-w-[1270px]">
-      <section className="w-1/2 h-screen gap-10 bg-[#50B36B] flex items-center flex-col justify-center">
+      <section className="w-1/2 h-screen gap-10 bg-lime-600 flex items-center flex-col justify-center">
         <Suspense fallback={<>로딩</>}>
           {/* <Modo /> */}
           <div className="font-bold text-[60px] text-white">PEER 360</div>
@@ -46,11 +47,11 @@ export const LoginPage = () => {
               identity="이메일"
               autoselected
               message={errors.userId?.message?.toString()}
-              context={register('userId', {
+              context={register('email', {
                 required: '이메일을 입력하세요.',
               })}
             />
-            <Input
+            <HiddenInput
               label="비밀번호"
               identity="비밀번호"
               message={errors.password?.message?.toString()}

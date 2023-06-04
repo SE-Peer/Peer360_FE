@@ -9,7 +9,7 @@ export default function SmallButton(props: SmallButtonProps) {
     content = 'Button',
     isSecondary = false,
     isSubmit = false,
-    color = 'brown2',
+    color = 'mainColor',
   } = props;
   const [colorHeirarchy, dispatchHeirarchy] = useReducer(smallButtonReducer, '');
 

@@ -5,6 +5,7 @@ import { useEffect } from 'react';
 import Button from '@/Components/Button';
 import { ReactComponent as Banner } from '@/assets/login-banner.svg';
 import Input from '@/Components/Input';
+import HiddenInput from '@/Components/HiddenInput';
 
 export const SignupPage = () => {
   const navigate = useNavigate();
@@ -17,7 +18,7 @@ export const SignupPage = () => {
   });
   const handleSubmitButton: SubmitHandler<any> = (data) => {
     alert(JSON.stringify(data));
-    navigate('/locationvalidation');
+    navigate('/mainPage');
   };
   useEffect(() => {
     document.querySelector('body')!.style.width = '100%';
@@ -29,7 +30,7 @@ export const SignupPage = () => {
   }, []);
   return (
     <main className="flex w-full min-w-[1270px]">
-      <section className="w-1/2 h-screen gap-10 bg-[#50B36B] flex items-center flex-col justify-center">
+      <section className="w-1/2 h-screen gap-10 bg-lime-600 flex items-center flex-col justify-center">
         {/* <Modo /> */}
         <div className="font-bold text-[60px] text-white">PEER 360</div>
         <Banner />
@@ -43,19 +44,17 @@ export const SignupPage = () => {
               identity="이메일"
               placehd="영문으로 입력해주세요."
               autoselected
-              message={errors.userId?.message?.toString()}
-              useButton
-              isButtonContent="중복확인"
-              context={register('userId', {
+              message={errors.email?.message?.toString()}
+              context={register('email', {
                 required: '메일을 입력하세요.',
               })}
             />
-            <Input
+            <HiddenInput
               label="비밀번호"
               identity="비밀번호"
               placehd="영문,숫자 포함 8자 이상으로 입력해주세요."
-              message={errors.userPw?.message?.toString()}
-              context={register('userPw', {
+              message={errors.password?.message?.toString()}
+              context={register('password', {
                 required: '비밀번호를 입력하세요',
                 minLength: {
                   value: 8,
@@ -64,50 +63,46 @@ export const SignupPage = () => {
               })}
             />
             <Input
-              label="비밀번호 확인"
-              identity="비밀번호 확인"
-              placehd="비밀번호를 다시 한번 더 입력해주세요."
-              message={errors.userPwCheck?.message?.toString()}
-              context={register('userPwCheck', {
-                required: '비밀번호를 입력하세요',
-                minLength: {
-                  value: 6,
-                  message: '비밀번호가 다릅니다!',
-                },
+              label="github"
+              identity="github"
+              placehd="github URL을 입력해주세요."
+              autoselected
+              message={errors.githubUrl?.message?.toString()}
+              context={register('githubUrl', {
+                required: 'github url을 입력하세요.',
               })}
             />
             <Input
-              label="닉네임 입력"
-              identity="닉네임 입력"
+              label="이름 입력"
+              identity="이름 입력"
               placehd="2글자 이상 입력해주세요."
-              message={errors.userName?.message?.toString()}
-              context={register('userName', {
-                required: '닉네임을 입력하세요',
+              message={errors.name?.message?.toString()}
+              context={register('name', {
+                required: '이름을 입력하세요',
                 minLength: {
                   value: 2,
-                  message: '2자리 이상 닉네임을 사용하세요',
+                  message: '2자리 이상 이름을 사용하세요',
                 },
               })}
             />
+
             <Input
-              label="전화번호 인증"
-              identity="전화번호 인증"
-              placehd="- 없이 입력해주세요."
+              label="회사 입력"
+              identity="회사 입력"
+              placehd="소속한 회사의 이름을 입력해주세요."
               autoselected
-              message={errors.userPhonenum?.message?.toString()}
-              useButton
-              isButtonContent="중복확인"
-              context={register('userPhonenum', {
+              message={errors.company?.message?.toString()}
+              context={register('company', {
                 required: '',
               })}
             />
             <Input
-              label="인증번호 입력"
-              identity="인증번호 입력"
-              placehd="인증번호를 입력해주세요."
+              label="학교 입력"
+              identity="학교 입력"
+              placehd="소속한 학교의 이름을 입력해주세요."
               autoselected
-              message={errors.authNumber?.message?.toString()}
-              context={register('authNumber', {
+              message={errors.school?.message?.toString()}
+              context={register('school', {
                 required: '',
               })}
             />
