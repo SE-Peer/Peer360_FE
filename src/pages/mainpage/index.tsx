@@ -15,6 +15,7 @@ export const MainPage = () => {
   const showModal = () => {
     setModalOpen(true);
   };
+
   return (
     <>
       <Header />
@@ -24,7 +25,7 @@ export const MainPage = () => {
           navigate('/mainPage');
         }}
       ></div>
-      {modalOpen && <ModalBasic setModalOpen={setModalOpen} />}
+      {modalOpen && <ModalBasic id=" " content="" title="" writer="" setModalOpen={setModalOpen} />}
       <div className="flex flex-col w-full">
         {/* <ItemTitle
           itemMainTitle="프로젝트 등록"

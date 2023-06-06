@@ -1,4 +1,4 @@
-import { useForm } from 'react-hook-form';
+import { useForm, SubmitHandler } from 'react-hook-form';
 
 import Input from '@/Components/Input';
 import Button from '@/Components/Button';
@@ -8,18 +8,15 @@ import { ModalProps } from './types';
 
 export default function ModalBasic(props: ModalProps) {
   const { id = 'id', content = 'Modal', title = 'hi', writer = 'me', setModalOpen = true } = props;
+
   const closeModal = () => {
-    setModalOpen(false);
+    setModalOpen();
   };
-  const {
-    register,
-    handleSubmit,
-    formState: { isSubmitting, errors },
-  } = useForm({
+  const { register, handleSubmit } = useForm({
     mode: 'onSubmit',
   });
 
-  const handleSubmitButton: SubmitHandler<any> = (data) => {
+  const handleSubmitButton: SubmitHandler<any> = (data: JSON) => {
     alert(JSON.stringify(data));
   };
   return (
@@ -56,6 +53,7 @@ export default function ModalBasic(props: ModalProps) {
                 required: '프로젝트의 URL을 입력하세요.',
               })}
             />
+            {id} {content} {title} {writer}
             <Button content="등록하기" isSubmit />
           </div>
         </form>

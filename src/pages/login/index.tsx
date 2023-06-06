@@ -1,6 +1,6 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useEffect, Suspense } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 import { ReactComponent as Banner } from '@/assets/login-banner.svg';
@@ -9,6 +9,7 @@ import Button from '@/Components/Button';
 import HiddenInput from '@/Components/HiddenInput';
 
 export const LoginPage = () => {
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -19,14 +20,18 @@ export const LoginPage = () => {
 
   const handleSubmitButton: SubmitHandler<any> = (data) => {
     alert(JSON.stringify(data));
+
     axios
       .post(
         'http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/users/login',
         JSON.stringify(data),
+
         { headers: { 'Content-Type': 'application/json' } },
       )
       .then((res) => {
         console.log(res);
+        localStorage.setItem('userId', data.email);
+        navigate('/mainPage');
       });
   };
 
