@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { useEffect, Suspense } from 'react';
 import { Link } from 'react-router-dom';
+import axios from 'axios';
 
 import { ReactComponent as Banner } from '@/assets/login-banner.svg';
 import Input from '@/Components/Input';
@@ -18,6 +19,15 @@ export const LoginPage = () => {
 
   const handleSubmitButton: SubmitHandler<any> = (data) => {
     alert(JSON.stringify(data));
+    axios
+      .post(
+        'http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/users/login',
+        JSON.stringify(data),
+        { headers: { 'Content-Type': 'application/json' } },
+      )
+      .then((res) => {
+        console.log(res);
+      });
   };
 
   useEffect(() => {
@@ -33,7 +43,6 @@ export const LoginPage = () => {
     <main className="flex w-full min-w-[1270px]">
       <section className="w-1/2 h-screen gap-10 bg-lime-600 flex items-center flex-col justify-center">
         <Suspense fallback={<>로딩</>}>
-          {/* <Modo /> */}
           <div className="font-bold text-[60px] text-white">PEER 360</div>
           <Banner />
         </Suspense>
@@ -46,7 +55,7 @@ export const LoginPage = () => {
               label="이메일"
               identity="이메일"
               autoselected
-              message={errors.userId?.message?.toString()}
+              message={errors.email?.message?.toString()}
               context={register('email', {
                 required: '이메일을 입력하세요.',
               })}

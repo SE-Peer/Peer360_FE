@@ -18,7 +18,6 @@ function App() {
         <Route path="/login" element={<LoginPage />} />
         <Route path="/addreview" element={<AddReview />} />
         <Route path="/signup" element={<SignupPage />} />
-        <Route path="/locationvalidation" element={<LocationValidationPage />} />
       </Routes>
     </>
   );

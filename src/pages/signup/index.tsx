@@ -1,6 +1,7 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
+import axios from 'axios';
 
 import Button from '@/Components/Button';
 import { ReactComponent as Banner } from '@/assets/login-banner.svg';
@@ -18,6 +19,8 @@ export const SignupPage = () => {
   });
   const handleSubmitButton: SubmitHandler<any> = (data) => {
     alert(JSON.stringify(data));
+
+    axios.post(`${import.meta.env.API_URL}/users`, JSON.stringify(data));
     navigate('/mainPage');
   };
   useEffect(() => {

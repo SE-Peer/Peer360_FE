@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { BsPlusSquare } from 'react-icons/bs';
+// import { BsPlusSquare } from 'react-icons/bs';
 import React from 'react';
 
 // import { ReactComponent as MODO } from '@/assets/small-modo.svg';
@@ -14,12 +14,11 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const NavBarList: INavBarList[] = [
-    {
-      icons: <BsPlusSquare />,
-      text: '리뷰 등록하기',
-      goTo: 'addreview',
-    },
-
+    // {
+    //   icons: <BsPlusSquare />,
+    //   text: '리뷰 등록하기',
+    //   goTo: 'addreview',
+    // },
     // {
     //   icons: <BsHeart />,
     //   text: '리뷰 작성하기',

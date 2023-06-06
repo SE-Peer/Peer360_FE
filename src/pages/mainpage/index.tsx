@@ -59,6 +59,16 @@ export const MainPage = () => {
             itemState="리뷰가능"
           />
         </div>
+        <div>
+          <ItemTitle
+            itemMainTitle="나의 리뷰"
+            itemSubTitle="나의 리뷰를 워드 클라우드로 확인해요."
+            itemToggle={true}
+          />
+          <div className="flex px-[340px] w-full place-items-center">
+            <img src="src/assets/wordcloud.jpeg" />
+          </div>
+        </div>
       </div>
     </>
   );
