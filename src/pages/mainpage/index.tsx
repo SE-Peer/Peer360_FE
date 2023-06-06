@@ -10,11 +10,14 @@ import ModalBasic from '@/Components/BasicModal';
 
 export const MainPage = () => {
   const navigate = useNavigate();
-  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [modalOpen, setModalOpen] = useState<boolean | string>();
   const [cloudUrl, setCloudUrl] = useState<string>('');
   const [isUrl, setIsUrl] = useState<boolean>(false);
   const showModal = () => {
     setModalOpen(true);
+  };
+  const closeModal = () => {
+    setModalOpen(false);
   };
   useEffect(() => {
     axios
@@ -38,7 +41,7 @@ export const MainPage = () => {
           navigate('/mainPage');
         }}
       ></div>
-      {modalOpen && <ModalBasic id=" " content="" title="" writer="" setModalOpen={setModalOpen} />}
+      {modalOpen && <ModalBasic id=" " content="" title="" writer="" />}
       <div className="flex flex-col w-full">
         {/* <ItemTitle
           itemMainTitle="프로젝트 등록"
@@ -73,7 +76,7 @@ export const MainPage = () => {
             itemState="리뷰가능"
           />
         </div>
-        <div>
+        <div onClick={closeModal}>
           <ItemTitle
             itemMainTitle="나의 리뷰"
             itemSubTitle="나의 리뷰를 워드 클라우드로 확인해요."

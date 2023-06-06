@@ -1,4 +1,5 @@
 import { useForm, SubmitHandler } from 'react-hook-form';
+import React from 'react';
 
 import Input from '@/Components/Input';
 import Button from '@/Components/Button';
@@ -7,11 +8,8 @@ import ItemTitle from '../ItemTitle';
 import { ModalProps } from './types';
 
 export default function ModalBasic(props: ModalProps) {
-  const { id = 'id', content = 'Modal', title = 'hi', writer = 'me', setModalOpen = true } = props;
+  const { id = 'id', content = 'Modal', title = 'hi', writer = 'me' } = props;
 
-  const closeModal = () => {
-    setModalOpen();
-  };
   const { register, handleSubmit } = useForm({
     mode: 'onSubmit',
   });
@@ -21,9 +19,6 @@ export default function ModalBasic(props: ModalProps) {
   };
   return (
     <div className="w-[1270px] h-[550px] z-[999] absolute top-50 bg-white border border-gray rounded-xl ">
-      <div className="abosulte text-black text-right pr-3 py-1 cursor-pointer" onClick={closeModal}>
-        X
-      </div>
       <div className="px-3">
         <div className="pb-8">
           <ItemTitle
@@ -37,10 +32,10 @@ export default function ModalBasic(props: ModalProps) {
           <div className="flex flex-col px-10">
             <Input
               label="프로젝트명"
-              identity="projectId"
+              identity="name"
               autoselected
               //   message={errors.userId?.message?.toString()}
-              context={register('projectId', {
+              context={register('name', {
                 required: '프로젝트명을 입력하세요.',
               })}
             />
