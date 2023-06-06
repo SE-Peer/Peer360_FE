@@ -3,5 +3,4 @@ export interface ModalProps {
   content: string;
   title: string;
   writer: string;
-  setModalOpen: boolean;
 }

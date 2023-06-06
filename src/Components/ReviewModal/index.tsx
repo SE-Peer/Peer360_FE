@@ -54,8 +54,8 @@ export default function ModalBasic(props: ModalProps) {
         <div className="px-3">
           <div className="pb-8">
             <ItemTitle
-              itemMainTitle="프로젝트 등록"
-              itemSubTitle="프로젝트를 등록하세요"
+              itemMainTitle="리뷰 등록"
+              itemSubTitle="리뷰를 등록해주세요."
               itemToggle={true}
             />
           </div>

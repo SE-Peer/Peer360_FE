@@ -29,7 +29,9 @@ export const LoginPage = () => {
       )
       .then((res) => {
         console.log(res);
+        const ranId = Math.floor(Math.random() * 100);
         localStorage.setItem('userId', data.email);
+        localStorage.setItem('ranId', ranId.toString());
         toast.fire({
           icon: 'success',
           title: '로그인 성공',

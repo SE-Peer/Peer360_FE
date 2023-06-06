@@ -42,7 +42,7 @@ export const Header = () => {
       <div
         className=" py-3 cursor-pointer font-bold text-[42px] text-lime-600"
         onClick={() => {
-          navigate('/');
+          navigate('/mainPage');
         }}
       >
         PEER 360

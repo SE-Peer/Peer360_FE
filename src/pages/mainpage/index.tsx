@@ -27,7 +27,6 @@ export const MainPage = () => {
         )}/reviews/wordcloud`,
       )
       .then((res) => {
-        console.log(res);
         setCloudUrl(res.data);
         setIsUrl(true);
       });
@@ -38,10 +37,11 @@ export const MainPage = () => {
       <div
         className=" flex flex-col cursor-pointer font-bold text-[42px] text-green"
         onClick={() => {
+          closeModal();
           navigate('/mainPage');
         }}
       ></div>
-      {modalOpen && <ModalBasic id=" " content="" title="" writer="" />}
+      {modalOpen && <ModalBasic id=" " content="" title="" writer="" setModalOpen={true} />}
       <div className="flex flex-col w-full">
         {/* <ItemTitle
           itemMainTitle="프로젝트 등록"
@@ -56,25 +56,8 @@ export const MainPage = () => {
           itemSubTitle="진행중인 프로젝트입니다."
           itemToggle={true}
         />
-        <div className="flex px-12 gap-20">
-          <ItemList
-            itemUrl="https://github.com/turfguy"
-            itemName="PEER360"
-            itemPrice=""
-            itemState="리뷰가능"
-          />
-          <ItemList
-            itemUrl="https://github.com/turfguy"
-            itemName="PEER360"
-            itemPrice=""
-            itemState="리뷰가능"
-          />
-          <ItemList
-            itemUrl="https://github.com/turfguy"
-            itemName="PEER360"
-            itemPrice=""
-            itemState="리뷰가능"
-          />
+        <div className="flex flex-wrap px-12 gap-20 max-w-[1500px] " onClick={closeModal}>
+          <ItemList />
         </div>
         <div onClick={closeModal}>
           <ItemTitle
