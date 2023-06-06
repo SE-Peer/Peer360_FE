@@ -38,7 +38,7 @@ export const LoginPage = () => {
         });
         navigate('/mainPage');
       })
-      .catch((errors) => {
+      .catch(() => {
         toast.fire({
           icon: 'error',
           title: '이메일 혹은 비밀번호를 확인해주세요!',

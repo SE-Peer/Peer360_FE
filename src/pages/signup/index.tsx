@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 import axios from 'axios';
+import toast from 'sweetalert2';
 
 import Button from '@/Components/Button';
 import { ReactComponent as Banner } from '@/assets/login-banner.svg';
@@ -28,7 +29,21 @@ export const SignupPage = () => {
       )
       .then((res) => {
         console.log(res);
+        toast.fire({
+          icon: 'success',
+          title: '회원가입 성공!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate('/login');
+      })
+      .catch(() => {
+        toast.fire({
+          icon: 'error',
+          title: '회원 정보를 확인해주세요.',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   };
   useEffect(() => {
