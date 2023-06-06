@@ -1,6 +1,7 @@
 import { Link, useNavigate } from 'react-router-dom';
 // import { BsPlusSquare } from 'react-icons/bs';
 import React from 'react';
+import toast from 'sweetalert2';
 
 // import { ReactComponent as MODO } from '@/assets/small-modo.svg';
 
@@ -51,6 +52,12 @@ export const Header = () => {
           className="text-right text-sm cursor-pointer "
           onClick={() => {
             localStorage.clear();
+            toast.fire({
+              icon: 'error',
+              title: '로그아웃 되었어요!',
+              showConfirmButton: false,
+              timer: 1500,
+            });
             navigate('/login');
           }}
         >

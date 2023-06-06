@@ -19,8 +19,6 @@ export const SignupPage = () => {
     mode: 'onSubmit',
   });
   const handleSubmitButton: SubmitHandler<any> = (data) => {
-    alert(JSON.stringify(data));
-
     axios
       .post(
         'http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/users',
