@@ -1,5 +1,6 @@
 import { useNavigate } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 import Header from '@/Components/Header';
 import ItemList from '@/Components/ItemList';
@@ -9,13 +10,25 @@ import ModalBasic from '@/Components/BasicModal';
 
 export const MainPage = () => {
   const navigate = useNavigate();
-  const [modalOpen, setModalOpen] = useState(false);
-
-  // 모달창 노출
+  const [modalOpen, setModalOpen] = useState<boolean>(false);
+  const [cloudUrl, setCloudUrl] = useState<string>('');
+  const [isUrl, setIsUrl] = useState<boolean>(false);
   const showModal = () => {
     setModalOpen(true);
   };
-
+  useEffect(() => {
+    axios
+      .get(
+        `http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/users/${localStorage.getItem(
+          'userId',
+        )}/reviews/wordcloud`,
+      )
+      .then((res) => {
+        console.log(res);
+        setCloudUrl(res.data);
+        setIsUrl(true);
+      });
+  }, []);
   return (
     <>
       <Header />
@@ -67,7 +80,7 @@ export const MainPage = () => {
             itemToggle={true}
           />
           <div className="flex px-[340px] w-full place-items-center">
-            <img src="src/assets/wordcloud.jpeg" />
+            {isUrl && <img src={cloudUrl} />}
           </div>
         </div>
       </div>

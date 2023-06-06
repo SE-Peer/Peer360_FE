@@ -2,7 +2,6 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 
 import LoginPage from '@/pages/login';
 import SignupPage from '@/pages/signup';
-import LocationValidationPage from '@/pages/locationvalidation';
 import MainPage from '@/pages/mainpage';
 import AddReview from '@/pages/addreview';
 

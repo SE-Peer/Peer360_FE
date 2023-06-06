@@ -47,7 +47,15 @@ export const Header = () => {
         PEER 360
       </div>
       <div>
-        <div className="text-right text-sm cursor-pointer ">로그아웃</div>
+        <div
+          className="text-right text-sm cursor-pointer "
+          onClick={() => {
+            localStorage.clear();
+            navigate('/login');
+          }}
+        >
+          로그아웃
+        </div>
         <div className="flex  gap-2  py-3 justify-between last:border-none remove-border-right">
           {NavBarList.map((item, idx) => (
             <Link to={`/${item.goTo}`} key={idx}>

@@ -2,6 +2,7 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import { useEffect, Suspense } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import toast from 'sweetalert2';
 
 import { ReactComponent as Banner } from '@/assets/login-banner.svg';
 import Input from '@/Components/Input';
@@ -19,8 +20,6 @@ export const LoginPage = () => {
   });
 
   const handleSubmitButton: SubmitHandler<any> = (data) => {
-    alert(JSON.stringify(data));
-
     axios
       .post(
         'http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/users/login',
@@ -31,7 +30,21 @@ export const LoginPage = () => {
       .then((res) => {
         console.log(res);
         localStorage.setItem('userId', data.email);
+        toast.fire({
+          icon: 'success',
+          title: '로그인 성공',
+          showConfirmButton: false,
+          timer: 1500,
+        });
         navigate('/mainPage');
+      })
+      .catch((errors) => {
+        toast.fire({
+          icon: 'error',
+          title: '이메일 혹은 비밀번호를 확인해주세요!',
+          showConfirmButton: false,
+          timer: 1500,
+        });
       });
   };
 
