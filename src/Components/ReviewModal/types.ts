@@ -1,6 +1,3 @@
-export interface ModalProps {
-  id: string;
-  content: string;
-  title: string;
-  writer: string;
+export interface ReviewModalProps {
+  projectName: string;
 }

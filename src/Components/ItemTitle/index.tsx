@@ -8,9 +8,11 @@ export default function ItemTitle(props: ItemTitleProps) {
     <>
       <div className="flex pt-10">
         <div className="text-[25px]  font-semibold">{itemMainTitle}</div>
-        <div className="flex px-3 py-[15px] text-[12px] gap-1 align-bottom ">
-          {itemSubTitle}
-          {itemToggle ? <Arrow /> : ' '}
+        <div className="flex px-3 pt-[8px] pb-[9px] text-[12px] gap-1 align-bottom ">
+          <div className="flex">
+            {itemSubTitle}
+            {itemToggle ? <Arrow /> : ' '}
+          </div>
         </div>
       </div>
     </>

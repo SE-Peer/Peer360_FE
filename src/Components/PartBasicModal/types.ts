@@ -1,7 +1,7 @@
-export interface ModalProps {
+export interface PartModalProps {
   id: string;
   content: string;
   title: string;
   writer: string;
-  setModalOpen: () => void;
+  setPartModalOpen: () => void;
 }

@@ -27,8 +27,7 @@ export const LoginPage = () => {
 
         { headers: { 'Content-Type': 'application/json' } },
       )
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         const ranId = Math.floor(Math.random() * 100);
         localStorage.setItem('userId', data.email);
         localStorage.setItem('ranId', ranId.toString());

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-// import { BsPlusSquare } from 'react-icons/bs';
+import { BsPlusSquare, BsPeople } from 'react-icons/bs';
 import React from 'react';
 import toast from 'sweetalert2';
 
@@ -15,11 +15,11 @@ export const Header = () => {
   const navigate = useNavigate();
 
   const NavBarList: INavBarList[] = [
-    // {
-    //   icons: <BsPlusSquare />,
-    //   text: '리뷰 등록하기',
-    //   goTo: 'addreview',
-    // },
+    {
+      icons: <BsPlusSquare />,
+      text: '프로젝트',
+      goTo: 'mainpage',
+    },
     // {
     //   icons: <BsHeart />,
     //   text: '리뷰 작성하기',
@@ -30,11 +30,11 @@ export const Header = () => {
     //   text: '채팅',
     //   goTo: 'chat',
     // },
-    // {
-    //   icons: <BsPeople />,
-    //   text: '마이 페이지',
-    //   goTo: 'mypage',
-    // },
+    {
+      icons: <BsPeople />,
+      text: '마이 페이지',
+      goTo: 'mypage',
+    },
   ];
 
   return (

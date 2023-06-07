@@ -7,10 +7,10 @@ import Input from '@/Components/Input';
 import Button from '@/Components/Button';
 
 import ItemTitle from '../ItemTitle';
-import { ModalProps } from './types';
+import { PartModalProps } from './types';
 
-export default function ModalBasic(props: ModalProps) {
-  const { id = 'id', content = 'Modal', title = 'hi', writer = 'me', setModalOpen } = props;
+export default function PartModalBasic(props: PartModalProps) {
+  const { id = 'id', content = 'Modal', title = 'hi', writer = 'me', setPartModalOpen } = props;
 
   const { register, handleSubmit } = useForm({
     mode: 'onSubmit',
@@ -18,19 +18,19 @@ export default function ModalBasic(props: ModalProps) {
   const handleSubmitButton: SubmitHandler<any> = (data: JSON) => {
     const myData = {
       ...data,
-      creatorEmail: localStorage.getItem('userId'),
-      status: 'REVIEW_POSSIBLE',
+      userEmail: localStorage.getItem('userId'),
+      participationId: localStorage.getItem('ranId'),
     };
     axios
       .post(
-        'http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/projects',
+        'http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/participations',
         JSON.stringify(myData),
         { headers: { 'Content-Type': 'application/json' } },
       )
       .then(() => {
         toast.fire({
           icon: 'success',
-          title: '등록완료!',
+          title: '참여완료!',
           showConfirmButton: false,
           timer: 1500,
         });
@@ -39,26 +39,28 @@ export default function ModalBasic(props: ModalProps) {
       .catch(() => {
         toast.fire({
           icon: 'error',
-          title: '등록실패!',
+          title: '참여실패!',
           showConfirmButton: false,
           timer: 1500,
         });
       });
   };
-
   return (
     <>
       <div className="w-[1270px] h-[550px] z-[999] absolute top-50 bg-white border border-gray rounded-xl ">
         <div className="top-0 right-0">
-          <button className="text-lime-600 text-[20px] px-2 py-2 font-bold" onClick={setModalOpen}>
+          <button
+            className="text-lime-600 text-[20px] px-2 py-2 font-bold"
+            onClick={setPartModalOpen}
+          >
             X
           </button>
         </div>
         <div className="px-3">
           <div className="pb-8">
             <ItemTitle
-              itemMainTitle="프로젝트 등록"
-              itemSubTitle="프로젝트를 등록하세요"
+              itemMainTitle="프로젝트 참여"
+              itemSubTitle="프로젝트에 참여하세요"
               itemToggle={true}
             />
           </div>
@@ -67,21 +69,11 @@ export default function ModalBasic(props: ModalProps) {
             <div className="flex flex-col px-10">
               <Input
                 label="프로젝트명"
-                identity="name"
+                identity="projectName"
                 autoselected
                 //   message={errors.userId?.message?.toString()}
-                context={register('name', {
-                  required: '프로젝트명을 입력하세요.',
-                })}
-              />
-              <div className="hidden"></div>
-              <Input
-                label="프로젝트URL"
-                identity="url"
-                autoselected
-                //   message={errors.userId?.message?.toString()}
-                context={register('url', {
-                  required: '프로젝트의 URL을 입력하세요.',
+                context={register('projectName', {
+                  required: '참여하려는 프로젝트명을 입력하세요.',
                 })}
               />
               {id} {content} {title} {writer}

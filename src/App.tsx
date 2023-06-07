@@ -3,7 +3,9 @@ import { Routes, Route, useLocation } from 'react-router-dom';
 import LoginPage from '@/pages/login';
 import SignupPage from '@/pages/signup';
 import MainPage from '@/pages/mainpage';
-import AddReview from '@/pages/addreview';
+import MyPage from '@/pages/mypage';
+
+// import AddReview from '@/pages/addreview';
 
 function App() {
   const location = useLocation();
@@ -15,8 +17,9 @@ function App() {
 
         <Route path="/mainpage" element={<MainPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="/addreview" element={<AddReview />} />
+        {/* <Route path="/addreview" element={<AddReview />} /> */}
         <Route path="/signup" element={<SignupPage />} />
+        <Route path="/mypage" element={<MyPage />} />
       </Routes>
     </>
   );
