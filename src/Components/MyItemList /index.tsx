@@ -20,7 +20,7 @@ export default function MyItemList() {
         const sortedData = res.data.map((item: any, idx: any) => ({ ...item, id: idx }));
         setMyItemListObj(sortedData);
       });
-  }, []);
+  }, [MyItemList]);
 
   return (
     <>
@@ -32,8 +32,8 @@ export default function MyItemList() {
               <img className="  left-0 top-0 h-3/5 " src="src/assets/gitImage.jpeg" />
               <div className="pt-3 mx-2 left-0 top-0 w-1/3 ">
                 <SmallButton
-                  content={item.status === 'REVIEW_POSSIBLE' ? '리뷰가능' : '리뷰불가능'}
-                  color={item.status === 'REVIEW_POSSIBLE' ? 'mainColor' : 'red'}
+                  content={item.status === 'REVIEW_POSSIBLE' ? '리뷰가능' : '리뷰완료'}
+                  color={item.status === 'REVIEW_POSSIBLE' ? 'mainColor' : 'gray'}
                 />
               </div>
               <div
@@ -52,7 +52,11 @@ export default function MyItemList() {
                     setIsSelected(item.id);
                   }}
                 >
-                  <Button color="mainColor" content="리뷰 작성" />
+                  <Button
+                    content={item.status === 'REVIEW_POSSIBLE' ? '리뷰가능' : '리뷰완료'}
+                    color={item.status === 'REVIEW_POSSIBLE' ? 'mainColor' : 'gray'}
+                    disabled={item.status !== 'REVIEW_POSSIBLE'}
+                  />
                 </div>
               </div>
             </div>

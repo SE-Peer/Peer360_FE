@@ -111,7 +111,6 @@ export default function ReviewModal(props: ReviewModalProps) {
       reviewItems,
       reviewId: localStorage.getItem('ranId'),
     };
-    console.log(myData);
 
     axios
       .post(

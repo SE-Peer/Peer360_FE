@@ -23,7 +23,7 @@ export default function ButtonReducer(
       return 'border-green text-white bg-green';
     case 'gray':
       if (action.isSecondary) return 'border-gray text-gray bg-white';
-      return 'border-gray text-white bg-gray';
+      return 'border text-white bg-gray';
     default:
       return '';
   }
