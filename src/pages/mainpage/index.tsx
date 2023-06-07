@@ -31,7 +31,7 @@ export const MainPage = () => {
     <>
       <Header />
       <div
-        className=" flex flex-col cursor-pointer font-bold text-[42px] text-green"
+        className=" flex flex-col cursor-pointer font-bold text-[42px] text-green "
         onClick={() => {
           navigate('/mainPage');
         }}
