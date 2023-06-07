@@ -136,7 +136,7 @@ export default function ReviewModal(props: ReviewModalProps) {
   return (
     <>
       {!isShownReviewModal && (
-        <div className="w-[1200px] h-[1200px] z-[999] absolute inset-0 mx-[112px] my-52 bg-white border border-gray rounded-xl ">
+        <div className="w-[1200px] h-[600px] overflow-auto z-[999] absolute inset-0 mx-[112px] my-52 bg-white border border-gray rounded-xl ">
           <div className="top-0 right-0">
             <button
               className="text-lime-600 text-[20px] px-2 py-2 font-bold"
@@ -278,8 +278,9 @@ export default function ReviewModal(props: ReviewModalProps) {
                     <StarRating name="additionalProp10" register={register} />
                   </label>
                 </div>
-
-                <Button content="등록하기" isSubmit />
+                <div className="pb-3">
+                  <Button content="등록하기" isSubmit />
+                </div>
               </div>
             </form>
           </div>
