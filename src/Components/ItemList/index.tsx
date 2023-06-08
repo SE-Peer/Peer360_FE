@@ -25,10 +25,7 @@ export default function ItemList() {
             <div className="flex flex-col  gap-1 align-text-bottom  w-[320px] h-[380px] border border-t-0 border-l-0 border-r-0 rounded-xl border-gray  relative overflow-hidden">
               <img className="  left-0 top-0 h-3/5 " src="src/assets/gitImage.jpeg" />
               <div className="pt-3 mx-2 left-0 top-0 w-1/3 ">
-                <SmallButton
-                  content={item.status === 'REVIEW_POSSIBLE' ? '참여가능' : '참여불가능'}
-                  color={item.status === 'REVIEW_POSSIBLE' ? 'mainColor' : 'red'}
-                />
+                <SmallButton content="참여가능" color="mainColor" />
               </div>
               <div className="flex flex-col text-justify px-3 font-semibold text-[24px] ">
                 {item.name}

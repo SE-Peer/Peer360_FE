@@ -8,8 +8,11 @@ import ReviewModal from '@/Components/ReviewModal';
 export default function MyItemList() {
   const [MyItemListObj, setMyItemListObj] = useState<any>();
   const [isSelected, setIsSelected] = useState<string>('');
-
+  // const [ProjectList, setProjectList] = useState<any>();
   useEffect(() => {
+    axios
+      .get('http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/projects/list')
+      .then(() => {});
     axios
       .get(
         `http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/projects/participated/${localStorage.getItem(
@@ -18,9 +21,10 @@ export default function MyItemList() {
       )
       .then((res) => {
         const sortedData = res.data.map((item: any, idx: any) => ({ ...item, id: idx }));
+
         setMyItemListObj(sortedData);
       });
-  }, [MyItemList]);
+  }, [MyItemListObj]);
 
   return (
     <>
