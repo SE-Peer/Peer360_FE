@@ -26,7 +26,7 @@ export default function ScoreBoard() {
   return (
     <>
       {myScore.map((item, idx) => (
-        <div className="flex-col text-[15px] flex-wrap" key={idx}>
+        <div className="flex-col text-[15px]  flex-wrap" key={idx}>
           <div className="flex px-3 font-semibold ">{item.question}</div>
           <div className="flex items-center mt-1">
             <div className="w-2/4 h-5 mx-4 bg-[#f3f3f4] rounded">

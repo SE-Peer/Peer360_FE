@@ -2,6 +2,7 @@ import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 
+import BlackItemTitle from '@/Components/BlackItemTitle';
 import Header from '@/Components/Header';
 import ItemTitle from '@/Components/ItemTitle';
 import ScoreBoard from '@/Components/ScoreBoard';
@@ -36,7 +37,6 @@ export const MyPage = () => {
       .then((res) => {
         const { password, ...infoWithoutPassword } = res.data;
         setMyInfo(infoWithoutPassword);
-        console.log(myInfo);
       });
   }, []);
 
@@ -51,14 +51,13 @@ export const MyPage = () => {
       ></div>
 
       <div className="flex ">
-        <div className="w-2/5 flex-col border border-gray rounded px-3 py-2 border-r-0 ">
-          <ItemTitle
+        <div className="w-2/5 flex-col border border-gray rounded px-3  border-r-0 bg-black">
+          <BlackItemTitle
             itemMainTitle={`${myInfo?.name}님의 키워드`}
-            itemSubTitle=""
-            itemToggle={true}
+            itemSubTitle="나의 평가를 워드클라우드로 확인해요."
           />
           <div className=" ">
-            {isUrl && <img className="w-[500px] h-[500px]" src={cloudUrl} alt="Word Cloud" />}
+            {isUrl && <img className="py-2 w-[500px] h-[400px]" src={cloudUrl} alt="Word Cloud" />}
           </div>
         </div>
         <div className="w-3/5 border border-gray rounded border-l-0 ">
@@ -81,7 +80,7 @@ export const MyPage = () => {
         </div>
       </div>
       <div className="w-full h-[600px] border border-gray rounded my-12 overflow-auto">
-        <div className="px-2">
+        <div className="px-12">
           <ItemTitle
             itemMainTitle="나의 평점"
             itemSubTitle="내가 받은 평점을 확인해요."
