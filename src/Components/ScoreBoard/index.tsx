@@ -7,7 +7,7 @@ export default function ScoreBoard() {
   useEffect(() => {
     axios
       .get(
-        `http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/users/${localStorage.getItem(
+        `http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/users/${localStorage.getItem(
           'userId',
         )}/average-scores`,
       )

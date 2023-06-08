@@ -23,7 +23,7 @@ export default function ModalBasic(props: ModalProps) {
     };
     axios
       .post(
-        'http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/projects',
+        'http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/projects',
         JSON.stringify(myData),
         { headers: { 'Content-Type': 'application/json' } },
       )

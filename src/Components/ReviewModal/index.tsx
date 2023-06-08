@@ -114,7 +114,7 @@ export default function ReviewModal(props: ReviewModalProps) {
 
     axios
       .post(
-        'http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/reviews',
+        'http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/reviews',
         JSON.stringify(myData),
         { headers: { 'Content-Type': 'application/json' } },
       )
@@ -127,7 +127,7 @@ export default function ReviewModal(props: ReviewModalProps) {
           timer: 1500,
         });
         axios.patch(
-          `http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/projects/${projectName}/status/review-completed`,
+          `http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/projects/${projectName}/status/review-completed`,
         );
       })
       .catch(() => {});

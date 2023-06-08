@@ -22,7 +22,7 @@ export const LoginPage = () => {
   const handleSubmitButton: SubmitHandler<any> = (data) => {
     axios
       .post(
-        'http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/users/login',
+        'http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/users/login',
         JSON.stringify(data),
 
         { headers: { 'Content-Type': 'application/json' } },

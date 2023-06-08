@@ -11,11 +11,11 @@ export default function MyItemList() {
   // const [ProjectList, setProjectList] = useState<any>();
   useEffect(() => {
     axios
-      .get('http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/projects/list')
+      .get('http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/projects/list')
       .then(() => {});
     axios
       .get(
-        `http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/projects/participated/${localStorage.getItem(
+        `http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/projects/participated/${localStorage.getItem(
           'userId',
         )}`,
       )
