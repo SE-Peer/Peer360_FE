@@ -21,7 +21,8 @@ export const SignupPage = () => {
   const handleSubmitButton: SubmitHandler<any> = (data) => {
     axios
       .post(
-        'http://ec2-43-200-3-215.ap-northeast-2.compute.amazonaws.com:8081/users',
+        'http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/users',
+
         JSON.stringify(data),
         { headers: { 'Content-Type': 'application/json' } },
       )
