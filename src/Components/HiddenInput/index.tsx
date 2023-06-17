@@ -29,6 +29,7 @@ const HiddenInput = (props: HiddenInputProps) => {
       </label>
       <div className="flex w-full justify-between gap-2 ">
         <input
+          autoComplete="off"
           className={ButtonStyle}
           id={identity}
           type="password"

@@ -21,13 +21,12 @@ export const SignupPage = () => {
   const handleSubmitButton: SubmitHandler<any> = (data) => {
     axios
       .post(
-        'http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/users',
+        'http://ec2-3-35-26-239.ap-northeast-2.compute.amazonaws.com:8081/users',
 
         JSON.stringify(data),
         { headers: { 'Content-Type': 'application/json' } },
       )
-      .then((res) => {
-        console.log(res);
+      .then(() => {
         toast.fire({
           icon: 'success',
           title: '회원가입 성공!',
@@ -72,6 +71,10 @@ export const SignupPage = () => {
               message={errors.email?.message?.toString()}
               context={register('email', {
                 required: '메일을 입력하세요.',
+                minLength: {
+                  value: 1,
+                  message: '1자리 이상 아이디를 사용하세요',
+                },
               })}
             />
             <HiddenInput

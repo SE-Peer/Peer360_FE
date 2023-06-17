@@ -7,7 +7,7 @@ export default function ScoreBoard() {
   useEffect(() => {
     axios
       .get(
-        `http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/users/${localStorage.getItem(
+        `http://ec2-3-35-26-239.ap-northeast-2.compute.amazonaws.com:8081/users/${localStorage.getItem(
           'userId',
         )}/average-scores`,
       )
@@ -18,14 +18,12 @@ export default function ScoreBoard() {
         }));
         setMyScore(scores);
       })
-      .catch((error) => {
-        console.error(error);
-      });
+      .catch(() => {});
   }, []);
 
   return (
     <>
-      {myScore.map((item, idx) => (
+      {myScore.map((item: any, idx: any) => (
         <div className="flex-col text-[15px]  flex-wrap" key={idx}>
           <div className="flex px-3 font-semibold ">{item.question}</div>
           <div className="flex items-center mt-1">

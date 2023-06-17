@@ -17,7 +17,7 @@ export const MyPage = () => {
   useEffect(() => {
     axios
       .get(
-        `http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/users/${localStorage.getItem(
+        `http://ec2-3-35-26-239.ap-northeast-2.compute.amazonaws.com:8081/users/${localStorage.getItem(
           'userId',
         )}/reviews/wordcloud`,
       )
@@ -30,7 +30,7 @@ export const MyPage = () => {
   useEffect(() => {
     axios
       .get(
-        `http://ec2-43-200-174-159.ap-northeast-2.compute.amazonaws.com:8081/users/${localStorage.getItem(
+        `http://ec2-3-35-26-239.ap-northeast-2.compute.amazonaws.com:8081/users/${localStorage.getItem(
           'userId',
         )}`,
       )
